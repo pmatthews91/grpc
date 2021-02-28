@@ -10,7 +10,7 @@ from recommendations_pb2 import (
 )
 import recommendations_pb2_grpc
 
-books_by_category = {
+BOOKS_BY_CATEGORY = {
     BookCategory.MYSTERY: [
         BookRecommendation(id=1, title="The Maltese Falcon"),
         BookRecommendation(id=2, title="Murder on the Orient Express"),
@@ -39,10 +39,10 @@ class RecommendationService(
     recommendations_pb2_grpc.RecommendationsServicer
 ):
     def Recommend(self, request, context):
-        if request.category not in books_by_category:
+        if request.category not in BOOKS_BY_CATEGORY:
             context.abort(grpc.StatusCode.NOT_FOUND, "Category not found")
 
-        books_for_category = books_by_category[request.category]
+        books_for_category = BOOKS_BY_CATEGORY[request.category]
         num_results = min(request.max_results, len(books_for_category))
         books_to_recommend = random.sample(
             books_for_category, num_results

@@ -10,7 +10,9 @@ def main() -> None:
     request = RecommendationRequest(
          user_id=1, category=BookCategory.SCIENCE_FICTION, max_results=3
     )
-    client.Recommend(request)
+    result = client.Recommend(request)
+
+    print(result)
 
 
 if __name__ == "__main__":
