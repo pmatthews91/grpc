@@ -1,0 +1,39 @@
+[tool.poetry]
+name = "grpc"
+version = "0.1.0"
+description = "Trying gRPC"
+authors = ["Paul <pmatthews91@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+grpcio-tools = "^1.36.0"
+
+[tool.poetry.dev-dependencies]
+black = "^20.8b1"
+mypy = "^0.812"
+isort = "^5.7.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 100
+exclude = '''
+(
+    \.DS_Store |
+    \.githooks |
+    \.html$ |
+    \.idea |
+    \.json$ |
+    \.pyc$ |
+    \.sql$ |
+    \.vscode |
+    \.venv |
+    node_modules
+)
+'''
+
+[tool.isort]
+profile = "black"
+line_length = 100
