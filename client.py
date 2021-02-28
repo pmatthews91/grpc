@@ -1,7 +1,7 @@
 import grpc
 
-from recommendations_pb2 import BookCategory, RecommendationRequest
-from recommendations_pb2_grpc import RecommendationsStub
+from recommendations.recommendations_pb2 import BookCategory, RecommendationRequest
+from recommendations.recommendations_pb2_grpc import RecommendationsStub
 
 
 def main() -> None:
