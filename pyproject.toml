@@ -7,12 +7,15 @@ authors = ["Paul <pmatthews91@gmail.com>"]
 [tool.poetry.dependencies]
 python = "^3.8"
 
+Flask = "^1.1.2"
 grpcio-tools = "^1.36.0"
+Jinja2 = "^2.11.3"
 
 [tool.poetry.dev-dependencies]
 black = "^20.8b1"
 isort = "^5.7.0"
 mypy = "^0.812"
+pytest = "^6.2.2"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
