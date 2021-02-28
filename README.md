@@ -1,4 +1,4 @@
-# grpc
+# grpc-playground
 
 Testing out gRPC.
 

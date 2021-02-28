@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "grpc"
+name = "grpc-playground"
 version = "0.1.0"
 description = "Trying gRPC"
 authors = ["Paul <pmatthews91@gmail.com>"]
