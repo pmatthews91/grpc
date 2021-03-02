@@ -17,7 +17,7 @@
             </DockerPortBindingImpl>
           </list>
         </option>
-        <option name="commandLineOptions" value="" />
+        <option name="commandLineOptions" value="--network microservices --network-alias recommendations" />
         <option name="sourceFilePath" value="recommendations/Dockerfile" />
       </settings>
     </deployment>
