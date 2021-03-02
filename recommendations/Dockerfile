@@ -16,7 +16,8 @@ RUN apt-get update && \
 # Install Poetry
 RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python
 
-ENV PATH="${PATH}:~/.poetry/bin"
+# Get the Poetry executable on path
+ENV PATH="${PATH}:/root/.poetry/bin"
 
 # Install Python dependencies
 COPY pyproject.toml poetry.lock ./
@@ -31,4 +32,4 @@ RUN poetry run python -m grpc_tools.protoc -I ../protobufs --python_out=. \
   --grpc_python_out=. ../protobufs/recommendations.proto
 
 EXPOSE 50051
-ENTRYPOINT [ "python", "recommendations.py" ]
+ENTRYPOINT [ "poetry", "run", "python", "recommendations.py" ]
