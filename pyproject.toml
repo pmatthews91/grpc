@@ -8,6 +8,7 @@ authors = ["Paul <pmatthews91@gmail.com>"]
 python = "^3.8"
 
 Flask = "^1.1.2"
+grpc-interceptor = "^0.13.0"
 grpcio-tools = "^1.36.0"
 Jinja2 = "^2.11.3"
 

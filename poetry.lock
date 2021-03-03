@@ -86,6 +86,20 @@ docs = ["sphinx", "pallets-sphinx-themes", "sphinxcontrib-log-cabinet", "sphinx-
 dotenv = ["python-dotenv"]
 
 [[package]]
+name = "grpc-interceptor"
+version = "0.13.0"
+description = "Simplifies gRPC interceptors"
+category = "main"
+optional = false
+python-versions = ">=3.6,<4.0"
+
+[package.dependencies]
+grpcio = ">=1.8.0,<2.0.0"
+
+[package.extras]
+testing = ["protobuf (>=3.6.0)"]
+
+[[package]]
 name = "grpcio"
 version = "1.36.1"
 description = "HTTP/2-based RPC framework"
@@ -319,7 +333,7 @@ watchdog = ["watchdog"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "613479adf8ef5e78314cecee40c065794dc0cb8612d36132bc27e40fe0830253"
+content-hash = "267a792fa3512c950bcbf21a64e92f79972763ef5a58e2eca9afa87aa75f99ed"
 
 [metadata.files]
 appdirs = [
@@ -348,6 +362,10 @@ colorama = [
 flask = [
     {file = "Flask-1.1.2-py2.py3-none-any.whl", hash = "sha256:8a4fdd8936eba2512e9c85df320a37e694c93945b33ef33c89946a340a238557"},
     {file = "Flask-1.1.2.tar.gz", hash = "sha256:4efa1ae2d7c9865af48986de8aeb8504bf32c7f3d6fdc9353d34b21f4b127060"},
+]
+grpc-interceptor = [
+    {file = "grpc-interceptor-0.13.0.tar.gz", hash = "sha256:23ec906bd38bd09a6c9ca0ed44432ee8903d19aa9c4dce738c46469cb01f4a78"},
+    {file = "grpc_interceptor-0.13.0-py3-none-any.whl", hash = "sha256:0f0f2844798c5c81d4fa54fd00356bc3c44d0b1604fa90763839fae960e21f6f"},
 ]
 grpcio = [
     {file = "grpcio-1.36.1-cp27-cp27m-macosx_10_10_x86_64.whl", hash = "sha256:e3a83c5db16f95daac1d96cf3c9018d765579b5a29bb336758d793028e729921"},
