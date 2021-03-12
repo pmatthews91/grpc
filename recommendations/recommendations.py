@@ -1,17 +1,16 @@
-from concurrent import futures
 import random
-
-from grpc_interceptor import ExceptionToStatusInterceptor
-from grpc_interceptor.exceptions import NotFound
+from concurrent import futures
+from signal import SIGTERM, signal
 
 import grpc
-
+import recommendations_pb2_grpc
+from grpc_interceptor import ExceptionToStatusInterceptor
+from grpc_interceptor.exceptions import NotFound
 from recommendations_pb2 import (
     BookCategory,
     BookRecommendation,
     RecommendationResponse,
 )
-import recommendations_pb2_grpc
 
 BOOKS_BY_CATEGORY = {
     BookCategory.MYSTERY: [
@@ -62,6 +61,16 @@ def serve():
     )
     server.add_insecure_port("[::]:50051")
     server.start()
+
+    def handle_sigterm(*_):
+        print("Received shutdown signal")
+        # Refuses new requests and wait 30 seconds for current requests to complete
+        all_rpcs_done_event = server.stop(30)
+        all_rpcs_done_event.wait(30)
+        print("Shut down gracefully")
+
+    signal(SIGTERM, handle_sigterm)
+
     server.wait_for_termination()
 
 
